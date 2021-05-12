@@ -1,0 +1,15 @@
+version: '3'
+services:
+    amplify:
+        image: tanabebe/meet-amplify-demo:latest
+        volumes:
+            - ./:/amplify-demo/
+            - /amplify-demo/react-app/node_modules
+            - ./aws/:/root/.aws/
+        ports:
+            - '3000:3000'
+            - '3001:3001'
+        environment:
+            - CHOKIDAR_USEPOLLING=true
+        tty: true
+        stdin_open: true
